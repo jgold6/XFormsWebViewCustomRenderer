@@ -30,6 +30,7 @@ namespace XFormsWebViewCustomRenderer.Droid
 		{
 			base.ShouldOverrideUrlLoading(view, url);
 			Console.WriteLine("Current Url: {0}", url);
+			WebViewPage.CurrentUrl = url;
 			return false;
 		}
 	}

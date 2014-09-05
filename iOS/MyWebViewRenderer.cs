@@ -25,6 +25,7 @@ namespace XFormsWebViewCustomRenderer.iOS
 				webView.ScalesPageToFit = true;
 				webView.LoadFinished += (object sender2, EventArgs e2) => {
 					Console.WriteLine("Load Finished {0}", webView.Request.Url.AbsoluteString);
+					WebViewPage.CurrentUrl = webView.Request.Url.AbsoluteString;
 				};
 			}
 		}

@@ -17,13 +17,32 @@ namespace XFormsWebViewCustomRenderer
 
 	public partial class WebViewPage : ContentPage {
 
+		public static string CurrentUrl {get; set;}
+
 		public WebViewPage ()
 		{
 
-			MyWebView webView = new MyWebView();
-			webView.Source = "http://www.example.com";
+			StackLayout objStackLayout = new StackLayout()
+			{
+			};
 
-			this.Content = webView;
+			MyWebView webView = new MyWebView();
+			WebViewPage.CurrentUrl = "http://www.example.com";
+			webView.Source = WebViewPage.CurrentUrl;
+
+			webView.HeightRequest = 300;
+			objStackLayout.Children.Add(webView);
+
+			Button cmdButton1 = new Button();
+			cmdButton1.Text = "Show Me Current Url";
+			objStackLayout.Children.Add(cmdButton1);
+			//
+			cmdButton1.Clicked += ((o2, e2) =>
+			{
+				System.Diagnostics.Debug.WriteLine(CurrentUrl);
+			});
+
+			this.Content = objStackLayout;
 		}
 	}
 
