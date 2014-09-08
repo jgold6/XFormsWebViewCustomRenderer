@@ -69,6 +69,6 @@ Global
 		{F57D3F1E-3AB4-4FA3-91CB-6C9AEE9F371E}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = iOS\XFormsWebViewCustomRenderer.iOS.csproj
+		StartupItem = Droid\XformsWebViewCustomRenderer.Droid.csproj
 	EndGlobalSection
 EndGlobal

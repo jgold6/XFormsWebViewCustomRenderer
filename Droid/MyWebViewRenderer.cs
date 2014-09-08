@@ -20,6 +20,8 @@ namespace XFormsWebViewCustomRenderer.Droid
 				var webView = (global::Android.Webkit.WebView)Control;
 				webView.SetWebViewClient(new MyWebViewClient());
 				webView.SetInitialScale(-1);
+				webView.Settings.JavaScriptEnabled = true;
+
 			}
 		}
     }
@@ -31,8 +33,16 @@ namespace XFormsWebViewCustomRenderer.Droid
 			base.ShouldOverrideUrlLoading(view, url);
 			Console.WriteLine("Current Url: {0}", url);
 			WebViewPage.CurrentUrl = url;
+			view.EvaluateJavascript("javascriptFunction()", new JavaScriptResult());
 			return false;
 		}
 	}
-}
 
+	public class JavaScriptResult : Java.Lang.Object, IValueCallback
+	{
+		public void OnReceiveValue(Java.Lang.Object val)
+		{
+			Console.WriteLine("Returned value: {0}", val);
+		}
+	}
+}
